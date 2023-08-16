@@ -169,7 +169,7 @@ class DashboardPage extends StatelessWidget {
                                                 : Colors.red,
                                           ),
                                           Text(
-                                            userModel.rupee.toString(),
+                                            "${userModel.rupee}.00",
                                             style: TextStyle(
                                                 fontSize: 20,
                                                 color: userModel.rupee! > 50
@@ -190,8 +190,14 @@ class DashboardPage extends StatelessWidget {
                   ),
                   if (state.isLoadMore)
                     const Padding(
-                      padding: EdgeInsets.all(5.0),
-                      child: CircularProgressIndicator(),
+                      padding: EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 3,
+                        ),
+                      ),
                     )
                 ],
               );
@@ -213,10 +219,10 @@ class DashboardPage extends StatelessWidget {
           content: TextField(
             controller: textController,
             keyboardType: TextInputType.number,
-            maxLength: 2,
+            maxLength: 3,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
-              hintText: "50",
+              hintText: "50/100",
               prefixText: "₹",
               prefixStyle: TextStyle(
                 fontWeight: FontWeight.bold,
